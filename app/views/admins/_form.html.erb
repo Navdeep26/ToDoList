@@ -1,0 +1,9 @@
+<%= simple_form_for @product do |f| %>
+  <%= f.input :name, label: 'Product Name' %>
+  <%= f.input :description, label: 'Description' %>
+  <%= f.input :feature %>
+  <%= f.input :cost_of_product %>
+  <%= f.input :no_of_stock %>
+  <%= f.input :status, :collection => ["Activate","Deactivate"], :as => :radio_buttons, :checked =>"Activate",:item_wrapper_class => 'inline',:label => "Status" %>
+  <%= f.button :submit %>
+<% end %>

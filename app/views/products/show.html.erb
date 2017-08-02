@@ -1,0 +1,17 @@
+<h2><%= @product.name%></h2>
+<h3>Description <small><%= @product.description%></small></h3>
+<h3>Feature <small><%= @product.feature%></small></h3>
+<% if user_signed_in?%>
+
+<% if @product.user_id== current_user.id%>
+<%= link_to "Back", root_path, class:"btn btn-info"%>
+<%= link_to "Edit Product", edit_product_path, class:"btn btn-success"%>
+<%= link_to "Delete Product", product_path(@product),class:"btn btn-danger", method: :Delete, data: {confirm: "Are you sure?" }%>
+<% else%>
+<%= link_to "Back", root_path, class:"btn btn-info"%>
+
+<% end -%>
+<% else%>
+<%= link_to "Back", root_path, class:"btn btn-info"%>
+
+<% end %>
