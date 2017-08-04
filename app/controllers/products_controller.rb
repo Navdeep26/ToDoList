@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+	layout 'application', except: [:search,:merge]
 	before_action :find_product, only: [:show,:edit,:update,:destroy]
 	
 	def index
@@ -44,16 +45,41 @@ class ProductsController < ApplicationController
 	end
 	
 	def destroy
+		@product.destroy
+		redirect_to root_path
 	end
 
 	def search
-		if q ==1 
-			params[q] = "Activate"
-		elsif  q ==2
-			params[q] = "Deactivate"
+		if params[:q] == "1" 
+			
+			params[:q] = "Activate"
+		elsif  params[:q] == "2"
+			
+			params[:q] = "Deactivate"
+		else
+			
 		end
+
 		query = params[:q].present? ? params[:q] : 1 
-		results=Product.where(status: 'query') 
+		@products = Product.where(status: query) 
+		render 'index', layout: false
+	end
+
+	def merge
+		if params[:q] == "1"
+			logger.info("hi")
+			params[:q] = 1
+		elsif params[:q] == "2"
+			logger.info("hii")
+			params[:q] = 2
+		else params[:q] == "3"
+			logger.info("hiii")
+			params[:q] = 3
+		end
+		query = params[:q].present? ? params[:q] : 1
+		logger.info(query)
+		@products = Product.where(category_id: query)
+		render 'index', layout: false		
 	end
 
 	private

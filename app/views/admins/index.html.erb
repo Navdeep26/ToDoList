@@ -9,7 +9,7 @@
 			<% if product.user_id == current_user.id%>
 			<div class="col-md-3">
 				<a href="/products/<%= product.id%>">
-					<%= image_tag product.product_img.url(:product_index)%>
+					<%= image_tag product.product_img.url(:product_index) , class:"book"%>
 				</a>
 			</div>
 			<% end -%>	

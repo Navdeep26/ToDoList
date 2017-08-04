@@ -6,10 +6,12 @@
 		<%= image_tag @product.product_img.url(:product_show), class:"product_show"%>
 	</div>
 	<div class="col-md-7">
-		
-		<h2><%= @product.name%></h2>
+		<blockquote>
+			<h2><%= @product.name%></h2>
 		<h3>Description <small><%= @product.description%></small></h3>
 		<h3>Feature <small><%= @product.feature%></small></h3>
+		<h3>Cost Rs: <%= @product.cost_of_product%></h3>
+		<h3>No.of Stock: <%= @product.no_of_stock%></h3>
 		<% if user_signed_in?%>
 
 		<% if @product.user_id == current_user.id%>
@@ -26,5 +28,7 @@
 		<%= link_to "Back", root_path, class:"btn btn-info"%>
 
 		<% end %>
+		</blockquote>
+		
 	</div>
 </div>

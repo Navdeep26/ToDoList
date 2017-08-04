@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/admin' => "admins#index"
   resources :admins
   get '/search' => "products#search"
+  get '/merge' => "products#merge"
 end
