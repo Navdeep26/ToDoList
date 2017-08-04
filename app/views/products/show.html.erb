@@ -6,11 +6,13 @@
 <% if @product.user_id == current_user.id%>
 <%= link_to "Back", root_path, class:"btn btn-info"%>
 <%= link_to "Edit Product", edit_product_path, class:"btn btn-success"%>
-<%= link_to "Delete Product", product_path(@product),class:"btn btn-danger", method: :Delete, data: {confirm: "Are you sure?" }%>
+
+<%= link_to "Destroy", product_path(@product),class:"btn btn-danger", method: :DELETE, data: {confirm: "Are you sure?" }%>
+
 <% else%>
 <%= link_to "Back", root_path, class:"btn btn-info"%>
 
-<% end -%>
+<% end %>
 <% else%>
 <%= link_to "Back", root_path, class:"btn btn-info"%>
 

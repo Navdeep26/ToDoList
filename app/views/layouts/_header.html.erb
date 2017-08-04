@@ -23,18 +23,47 @@
         <% else %>
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :Delete ,style:"color: white",class: "navbar-brand"%></li>
         <% end %>
-      <li class="dropdown ",>
-          <a style="color: white" href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-        
+      </ul>
+      <ul class="nav navbar-nav navbar-right navbar-brand" ">
+        <select id="stat" name="status">
+          <option value="">Select Active/Deactive</option>
+          <option id="activ" value="1">Activate</option>
+          <option value="2">DeActivate</option>
+        </select>
+        <select id="cate" name="category">
+          <option value="">Select Category</option>
+          <%= Category.all.each do |category|%>
+          <option value="<%=category.id%>"><%= category.name%></option>
+          <% end -%>
+        </select>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<script>
+  $(document).ready(function(){
+    
+    $('#stat').change(function(){
+      
+      var SelectedValue = parseInt(jQuery(this).val());
+  
+      $.get("/search?q="+SelectedValue, function(data, status){
+      
+      });
+    });
+  });
+</script>
+
+<script>
+  
+  $(document).ready( function(){
+
+    $('#cate').change(function(){
+
+      var SelectedOption = parseInt(jQuery(this).val());
+    });
+  });
+</script>
+
+

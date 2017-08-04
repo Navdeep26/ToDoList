@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   get '/admin' => "admins#index"
   resources :admins
+  get '/search' => "products#search"
 end

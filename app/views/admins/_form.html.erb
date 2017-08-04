@@ -1,4 +1,14 @@
 <%= simple_form_for @product do |f| %>
+  
+  
+  <select name="category">
+  	<option value="">Select a category</option>
+  	<% @categories.each do |category|%>
+  	<option value="<%= category.id%>"><%= category.name%></option>
+  	<% end -%>
+  </select>
+  
+  <%= f.file_field :product_img%>
   <%= f.input :name, label: 'Product Name' %>
   <%= f.input :description, label: 'Description' %>
   <%= f.input :feature %>

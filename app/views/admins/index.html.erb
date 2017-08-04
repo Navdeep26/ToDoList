@@ -1,10 +1,12 @@
 <% @products.each do |product|%>
 <% if user_signed_in?%>
 		<% if product.user_id == current_user.id%>
-			<h2><%=link_to product.name, product_path(product)%></h2>
+			<a href="/products/<%= product.id%>">
+				<%= image_tag product.product_img.url(:product_index)%>
+			</a>
 		<% end -%>
 	<% end %>	
 <%end%>
 
-
+<br>
 <%= link_to "Add Product",  new_product_path,class:"btn btn-primary"%>

@@ -1,6 +1,8 @@
 
-	<%= @products.each do |item|%>
-	<h2><%=link_to item.name, product_path(item)%></h2>	
+	<%= @products.each do |product|%>
+	<a href="/products/<%= product.id%>">
+		<%= image_tag product.product_img.url(:product_index)%>
+	</a>	
 	<% end %>
 
 
