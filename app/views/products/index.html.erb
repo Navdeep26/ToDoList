@@ -1,9 +1,13 @@
-
+<div class="row">
 	<%= @products.each do |product|%>
-	<a href="/products/<%= product.id%>">
-		<%= image_tag product.product_img.url(:product_index)%>
-	</a>	
+	<div class="col-md-3">
+		<a href="/products/<%= product.id%>">
+		<%= image_tag product.product_img.url(:product_index) ,class:"book"%>
+		</a>
+	</div>	
 	<% end %>
+</div>
+	
 
 
 

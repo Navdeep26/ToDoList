@@ -1,12 +1,21 @@
-<% @products.each do |product|%>
-<% if user_signed_in?%>
-		<% if product.user_id == current_user.id%>
-			<a href="/products/<%= product.id%>">
-				<%= image_tag product.product_img.url(:product_index)%>
-			</a>
-		<% end -%>
-	<% end %>	
-<%end%>
 
+
+
+
+
+<div class="row">
+	<%= @products.each do |product|%>
+		<% if user_signed_in?%>
+			<% if product.user_id == current_user.id%>
+			<div class="col-md-3">
+				<a href="/products/<%= product.id%>">
+					<%= image_tag product.product_img.url(:product_index)%>
+				</a>
+			</div>
+			<% end -%>	
+		<% end %>
+	<% end %>
+</div>
 <br>
+
 <%= link_to "Add Product",  new_product_path,class:"btn btn-primary"%>

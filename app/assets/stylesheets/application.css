@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+.book{
+
+	height: 450px;
+	width:250px;
+}
+.product_show{
+	height:675px;
+	width: 445px;
+
+}
