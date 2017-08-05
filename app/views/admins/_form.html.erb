@@ -1,7 +1,7 @@
 <%= simple_form_for @product do |f| %>
   
   
-  <select name="category">
+  <select name="product[category]">
   	<option value="">Select a category</option>
   	<% @categories.each do |category|%>
   	<option value="<%= category.id%>"><%= category.name%></option>

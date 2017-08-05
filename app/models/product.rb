@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+	has_many :comments
 	belongs_to :user
 	belongs_to :category
 	has_attached_file :product_img, styles: { product_index: "250x350>", product_show: "325x525>" }, default_url: "/images/:style/missing.png"
@@ -16,7 +17,7 @@ class Product < ApplicationRecord
 		prod.no_of_stock = e[:no_of_stock]
 		prod.status = e[:status]
 		prod.feature = e[:feature]
-		prod.category_id = cat
+		prod.category_id = cat 
 		prod.user_id = user_id
 		
 		prod.save
@@ -24,7 +25,6 @@ class Product < ApplicationRecord
 
 
 	def self.update(id, e, cat, user_id)
-
 		prod = Product.find(id)
 
 		prod.name = e[:name]

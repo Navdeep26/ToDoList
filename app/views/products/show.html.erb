@@ -29,6 +29,14 @@
 
 		<% end %>
 		</blockquote>
-		
+		<% if user_signed_in?%>
+		<%= form_tag("/products/" + @product.id.to_s + "/comments", method: "post") do %>
+		  <%= label_tag(:q, "Search for:") %>
+		  <%= text_field_tag(:q) %>
+		  <%= submit_tag("Create Comment") %>
+		<% end %>
+		<% end%>
+
 	</div>
 </div>
+
