@@ -5,7 +5,7 @@
   	<option value="">Select a category</option>
   	<% @categories.each do |category|%>
   	<option value="<%= category.id%>"><%= category.name%></option>
-  	<% end -%>
+  	<% end %>
   </select>
   
   <%= f.file_field :product_img%>

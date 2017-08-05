@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
 	end
 
 	def create
-
+		logger.info(params)
 		category = params[:category]
 		user_id = current_user.id
 
@@ -37,8 +37,15 @@ class ProductsController < ApplicationController
 	end
 
 	def update
-		@categories = Category.get_all_categories
-		if @product.update(product_params)
+
+		category = params[:category]
+		user_id = current_user.id
+		id = params[:id]
+		
+		puts params 
+
+		@product = Product.update(id, product_params,category,user_id)
+		if @product.present?
 			redirect_to products_path
 		else render 'edit'
 		end

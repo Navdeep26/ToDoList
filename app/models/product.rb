@@ -18,8 +18,24 @@ class Product < ApplicationRecord
 		prod.feature = e[:feature]
 		prod.category_id = cat
 		prod.user_id = user_id
+		
 		prod.save
 	end
 
+
+	def self.update(id, e, cat, user_id)
+
+		prod = Product.find(id)
+
+		prod.name = e[:name]
+		prod.description = e[:description]
+		prod.cost_of_product = e[:cost_of_product]
+		prod.no_of_stock = e[:no_of_stock]
+		prod.status = e[:status]
+		prod.feature = e[:feature]
+		prod.category_id = cat
+		prod.user_id = user_id
+		prod.save
+	end
 end
 
