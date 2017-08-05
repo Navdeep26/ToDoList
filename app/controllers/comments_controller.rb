@@ -2,13 +2,14 @@ class CommentsController < ApplicationController
 before_action :find_product
 
 	def create
-		logger.info(params)
+
 		user_id = current_user.id
+
 		@comment = Comment.create(product_params,user_id)
 		
 
 		if @comment.present?
-			redirect_to product_path
+			redirect_to "/products/#{params[:product_id]}"
 		else render 'new'
 		end
 	end
@@ -17,7 +18,7 @@ before_action :find_product
 	private
 	
 	def product_params
-		params.require(:comment).permit(:content,:product_id)
+		params.permit(:q,:product_id)
 	end
 
 	def find_product

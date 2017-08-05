@@ -29,11 +29,18 @@
 
 		<% end %>
 		</blockquote>
+		<h3>Comments</h3>
+			<% @comments.each do |comment|%>
+				<h4><%=comment.user.email%><br></h4>
+				<%= comment.content%><hr>
+
+			<% end %>
+
 		<% if user_signed_in?%>
-		<%= form_tag("/products/" + @product.id.to_s + "/comments", method: "post") do %>
-		  <%= label_tag(:q, "Search for:") %>
-		  <%= text_field_tag(:q) %>
-		  <%= submit_tag("Create Comment") %>
+			<%= form_tag("/products/" + @product.id.to_s + "/comments", method: "post") do %>
+			 <%= label_tag(:q, "Comment Here:") %><br>
+			 <%= text_field_tag(:q) %>
+			 <%= submit_tag("Create Comment") %>
 		<% end %>
 		<% end%>
 
