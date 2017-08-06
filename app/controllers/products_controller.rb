@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
 	end
 
 	def create
-		logger.info(params)
+		
 		category = params[:product][:category]
 		user_id = current_user.id
 

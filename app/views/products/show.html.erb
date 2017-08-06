@@ -8,6 +8,7 @@
 	<div class="col-md-7">
 		<blockquote>
 			<h2><%= @product.name%></h2>
+			<h3>Category: <%= @product.category.name%></h3>
 		<h3>Description <small><%= @product.description%></small></h3>
 		<h3>Feature <small><%= @product.feature%></small></h3>
 		<h3>Cost Rs: <%= @product.cost_of_product%></h3>
@@ -37,13 +38,16 @@
 			<% end %>
 
 		<% if user_signed_in?%>
-			<%= form_tag("/products/" + @product.id.to_s + "/comments", method: "post") do %>
-			 <%= label_tag(:q, "Comment Here:") %><br>
-			 <%= text_field_tag(:q) %>
-			 <%= submit_tag("Create Comment") %>
-		<% end %>
-		<% end%>
+		
+			<%= form_tag("/products/" + @product.id.to_s + "/comments", method: "post") do %> 
+			 <%= label_tag(:q, "Comment Here:") %><br> 
+			 <%= text_field_tag(:q) %> 
+			 <%= submit_tag("Create Comment") %> 
+		 <% end %> 
+		
+		
 
 	</div>
 </div>
+
 

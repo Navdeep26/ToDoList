@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default" >    
   <div style="background-color: #232F3E" class="container-fluid ">
-    <!-- Brand and toggle get grouped for better mobile display -->
+    
     <div class="navbar-header" >
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="color: white">
         <span class="sr-only">Toggle navigation</span>
@@ -9,15 +9,16 @@
         <span class="icon-bar"></span>
       </button>
        <h2 class="brand brand-name navbar-left">
-           <a style="color: white" class="text1" href="/products#index"><img class="img-responsive2"       
+           <a style="color: white"  href="/products#index"><img class="img-responsive2"       
            src="/assets/DigitalPondlogo2.png">eShop</a>
        </h2>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
+   
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       
       <ul class="nav navbar-nav navbar-right">
+       <%= link_to "Admin", admin_path,class: "navbar-brand",style:"color: white"%>
         <% if !user_signed_in?%>
         <li><%= link_to "Sign Up", new_user_registration_path ,style:"color: white",class: "navbar-brand"%></li>
         <% else %>
@@ -25,20 +26,27 @@
         <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right navbar-brand" ">
+      <% if user_signed_in?%>
+        
         <select id="stat" name="status">
           <option value="">Select Active/Deactive</option>
           <option id="activ" value="1">Activate</option>
           <option value="2">DeActivate</option>
         </select>
+  
+      <% end %>
+
         <select id="cate" name="category">
           <option value="">Select Category</option>
           <%= Category.all.each do |category|%>
           <option value="<%=category.id%>"><%= category.name%></option>
           <% end -%>
         </select>
+
+
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
 
 <script>
@@ -55,10 +63,13 @@
   });
 </script>
 
+
+
+
 <script>
   
   $(document).ready( function(){
-
+    
     $('#cate').change(function(){
 
       var SelectedOption = parseInt(jQuery(this).val());
@@ -70,5 +81,9 @@
     });
   });
 </script>
+
+
+
+
 
 
