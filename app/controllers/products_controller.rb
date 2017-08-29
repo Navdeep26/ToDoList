@@ -61,10 +61,9 @@ class ProductsController < ApplicationController
 
 	def search
 		if params[:q] == "1" 
-			
 			params[:q] = "Activate"
+
 		elsif  params[:q] == "2"
-			
 			params[:q] = "Deactivate"
 		else
 			
@@ -76,15 +75,19 @@ class ProductsController < ApplicationController
 	end
 
 	def merge
-		if params[:q] == "1"
-			logger.info("hi")
+		if 
+			params[:q] == "1"
 			params[:q] = 1
-		elsif params[:q] == "2"
-			logger.info("hii")
+
+		elsif 
+			params[:q] == "2"
 			params[:q] = 2
-		else params[:q] == "3"
-			logger.info("hiii")
+
+		elsif params[:q] == "3"
 			params[:q] = 3
+
+		else 
+			params[:q] = [1,2,3]
 		end
 		query = params[:q].present? ? params[:q] : 1
 		

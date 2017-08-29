@@ -3,7 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :user
 
   def self.create(e,user_id)
-
+    logger.info(e)
   	comment = Comment.new
   	comment.content = e[:q]
   	comment.product_id = e[:product_id]

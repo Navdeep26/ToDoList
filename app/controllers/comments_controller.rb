@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 before_action :find_product
 
 	def create
-		logger.info('hi')
+		
 		user_id = current_user.id
 
 		@comment = Comment.create(product_params,user_id)

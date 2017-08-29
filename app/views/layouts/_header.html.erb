@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
       </button>
        <h2 class="brand brand-name navbar-left">
-           <a style="color: white"  href="/products#index"><img class="img-responsive2"       
+           <a style="color: white"  href="<%= root_path%>"><img class="img-responsive2"       
            src="/assets/DigitalPondlogo2.png">eShop</a>
        </h2>
     </div>
@@ -40,7 +40,7 @@
           <option value="">Select Category</option>
           <%= Category.all.each do |category|%>
           <option value="<%=category.id%>"><%= category.name%></option>
-          <% end -%>
+          <% end %>
         </select>
 
 
